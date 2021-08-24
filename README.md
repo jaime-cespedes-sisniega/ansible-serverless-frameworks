@@ -2,9 +2,12 @@
 
 Repository which contains Ansible playbooks to deploy differents serverless frameworks on top of Kubernetes.
 
+Note: Each of the frameworks uses the simplest configuration to reduce complexity as much as possible.
+
 Available serverless frameworks:
 
-- Knative (Serving).
+- Knative (Serving) v0.24.0.
+- Knative (Eventing) v0.25.0.
 
 ## Previous requirements
 
