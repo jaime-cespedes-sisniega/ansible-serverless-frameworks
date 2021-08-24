@@ -1,0 +1,32 @@
+---
+- name: Install Knative Serving
+  hosts: localhost
+  collections:
+    - community.kubernetes
+  tasks:
+    - name: Install Knative Serving CRDS
+      command: |
+        kubectl apply -f https://github.com/knative/serving/releases/download/v0.24.0/serving-crds.yaml
+
+    - name: Install Knative Serving Core
+      command: |
+        kubectl apply -f https://github.com/knative/serving/releases/download/v0.24.0/serving-core.yaml
+
+    - name: Install Knative Kourier
+      command: |
+        kubectl apply -f https://github.com/knative/net-kourier/releases/download/v0.24.0/kourier.yaml
+
+    - name: Configure Knative Serving to use Kourier
+      command: |
+        kubectl patch configmap/config-network \
+          --namespace knative-serving \
+          --type merge \
+          --patch '{"data":{"ingress.class":"kourier.ingress.networking.knative.dev"}}'
+
+    - name: Install Knative Kourier
+      command: |
+        kubectl apply -f https://github.com/knative/net-kourier/releases/download/v0.24.0/kourier.yaml
+
+    - name: Install HPA autoscaling
+      command: |
+        kubectl apply -f https://github.com/knative/serving/releases/download/v0.24.0/serving-hpa.yaml
