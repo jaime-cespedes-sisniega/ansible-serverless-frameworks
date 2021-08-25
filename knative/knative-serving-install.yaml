@@ -27,6 +27,10 @@
       command: |
         kubectl apply -f https://github.com/knative/net-kourier/releases/download/v0.25.0/kourier.yaml
 
+    - name: Use NodePort instead of LoadBalancer
+      command: |
+        kubectl apply -f kourier-nodeport.yaml
+
     - name: Install HPA autoscaling
       command: |
         kubectl apply -f https://github.com/knative/serving/releases/download/v0.25.0/serving-hpa.yaml
