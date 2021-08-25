@@ -6,15 +6,15 @@
   tasks:
     - name: Install Knative Serving CRDS
       command: |
-        kubectl apply -f https://github.com/knative/serving/releases/download/v0.24.0/serving-crds.yaml
+        kubectl apply -f https://github.com/knative/serving/releases/download/v0.25.0/serving-crds.yaml
 
     - name: Install Knative Serving Core
       command: |
-        kubectl apply -f https://github.com/knative/serving/releases/download/v0.24.0/serving-core.yaml
+        kubectl apply -f https://github.com/knative/serving/releases/download/v0.25.0/serving-core.yaml
 
     - name: Install Knative Kourier
       command: |
-        kubectl apply -f https://github.com/knative/net-kourier/releases/download/v0.24.0/kourier.yaml
+        kubectl apply -f https://github.com/knative/net-kourier/releases/download/v0.25.0/kourier.yaml
 
     - name: Configure Knative Serving to use Kourier
       command: |
@@ -25,8 +25,8 @@
 
     - name: Install Knative Kourier
       command: |
-        kubectl apply -f https://github.com/knative/net-kourier/releases/download/v0.24.0/kourier.yaml
+        kubectl apply -f https://github.com/knative/net-kourier/releases/download/v0.25.0/kourier.yaml
 
     - name: Install HPA autoscaling
       command: |
-        kubectl apply -f https://github.com/knative/serving/releases/download/v0.24.0/serving-hpa.yaml
+        kubectl apply -f https://github.com/knative/serving/releases/download/v0.25.0/serving-hpa.yaml

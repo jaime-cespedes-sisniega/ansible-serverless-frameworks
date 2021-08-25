@@ -6,7 +6,7 @@ Note: Each of the frameworks uses the simplest configuration to reduce complexit
 
 Available serverless frameworks:
 
-- Knative (Serving) v0.24.0.
+- Knative (Serving) v0.25.0.
 - Knative (Eventing) v0.25.0.
 
 ## Previous requirements
