@@ -23,10 +23,6 @@
           --type merge \
           --patch '{"data":{"ingress.class":"kourier.ingress.networking.knative.dev"}}'
 
-    - name: Install Knative Kourier
-      command: |
-        kubectl apply -f https://github.com/knative/net-kourier/releases/download/v0.25.0/kourier.yaml
-
     - name: Use NodePort instead of LoadBalancer
       command: |
         kubectl apply -f kourier-nodeport.yaml
