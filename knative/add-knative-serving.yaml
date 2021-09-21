@@ -2,9 +2,8 @@
 - name: Install Knative Serving
   hosts: localhost
   vars:
-    knative_version: v0.25.0
-  collections:
-    - community.kubernetes
+    knative_version: "{{ lookup('ini', 'version section=knative file=version.ini') }}"
+
   tasks:
     - name: Install Knative Serving CRDS
       command: |

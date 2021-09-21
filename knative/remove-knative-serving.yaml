@@ -2,7 +2,7 @@
 - name: Uninstall Knative Serving
   hosts: localhost
   vars:
-    knative_version: v0.25.0
+    knative_version: "{{ lookup('ini', 'version section=knative file=version.ini') }}"
 
   tasks:
     - name: Uninstall Knative Kourier
