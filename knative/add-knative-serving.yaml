@@ -1,20 +1,22 @@
 ---
 - name: Install Knative Serving
   hosts: localhost
+  vars:
+    knative_version: v0.25.0
   collections:
     - community.kubernetes
   tasks:
     - name: Install Knative Serving CRDS
       command: |
-        kubectl apply -f https://github.com/knative/serving/releases/download/v0.25.0/serving-crds.yaml
+        kubectl apply -f https://github.com/knative/serving/releases/download/"{{ knative_version }}"/serving-crds.yaml
 
     - name: Install Knative Serving Core
       command: |
-        kubectl apply -f https://github.com/knative/serving/releases/download/v0.25.0/serving-core.yaml
+        kubectl apply -f https://github.com/knative/serving/releases/download/"{{ knative_version }}"/serving-core.yaml
 
     - name: Install Knative Kourier
       command: |
-        kubectl apply -f https://github.com/knative/net-kourier/releases/download/v0.25.0/kourier.yaml
+        kubectl apply -f https://github.com/knative/net-kourier/releases/download/"{{ knative_version }}"/kourier.yaml
 
     - name: Configure Knative Serving to use Kourier
       command: |

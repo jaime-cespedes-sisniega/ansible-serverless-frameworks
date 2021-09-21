@@ -1,6 +1,8 @@
 ---
 - name: Install Knative Eventing
   hosts: localhost
+  vars:
+    knative_version: v0.25.0
   collections:
     - community.kubernetes
   tasks:
