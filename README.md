@@ -25,5 +25,5 @@ Activate virtualenv.
    ```
 Run desired playbook.
    ```sh
-   ansible-playbook knative/knative-serving-install.yaml -e 'ansible_python_interpreter="$(which python3)"'
+   ansible-playbook knative/add-knative-serving.yaml -e 'ansible_python_interpreter="$(which python3)"'
    ```
