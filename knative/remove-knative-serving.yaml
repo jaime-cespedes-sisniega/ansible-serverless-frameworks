@@ -7,11 +7,11 @@
   tasks:
     - name: Uninstall Knative Kourier
       command: |
-        kubectl delete -f https://github.com/knative/net-kourier/releases/download/"{{ knative_version }}"/kourier.yaml
+        kubectl delete --ignore-not-found=true -f https://github.com/knative/net-kourier/releases/download/"{{ knative_version }}"/kourier.yaml
 
     - name: Uninstall Knative Serving CRDS
       command: |
-        kubectl delete -f https://github.com/knative/serving/releases/download/"{{ knative_version }}"/serving-crds.yaml
+        kubectl delete --ignore-not-found=true -f https://github.com/knative/serving/releases/download/"{{ knative_version }}"/serving-crds.yaml
 
     - name: Uninstall Knative Serving Core
       command: |
