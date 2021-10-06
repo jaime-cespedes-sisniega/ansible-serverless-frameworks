@@ -6,8 +6,10 @@ Note: Each of the frameworks uses the simplest configuration to reduce complexit
 
 Available serverless frameworks:
 
-- Knative (Serving) v0.25.0.
-- Knative (Eventing) v0.25.0.
+- Knative v0.25.0.
+  - Serving.
+  - Eventing.
+- OpenWhisk.
 
 ## Previous requirements
 
@@ -25,5 +27,5 @@ Activate virtualenv.
    ```
 Run desired playbook.
    ```sh
-   ansible-playbook knative/add-knative-serving.yaml -e 'ansible_python_interpreter="$(which python3)"'
+   ansible-playbook <framework>/<playbook> -e 'ansible_python_interpreter="$(which python3)"'
    ```
