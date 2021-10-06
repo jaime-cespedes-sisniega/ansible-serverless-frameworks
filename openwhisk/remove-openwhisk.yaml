@@ -1,0 +1,16 @@
+---
+- name: Uninstall Openwhisk
+  hosts: localhost
+
+  tasks:
+    - name: Remove Openwhisk
+      command: |
+        /usr/local/bin/helm uninstall owdev -n openwhisk
+
+    - name: Delete remaining Openwhisk namespace pods
+      command: |
+        kubectl delete --all pods --namespace=openwhisk
+
+    - name: Delete Openwhisk namespace
+      command: |
+        kubectl delete namespaces openwhisk

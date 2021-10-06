@@ -1,0 +1,19 @@
+controller:
+  replicaCount: 1
+whisk:
+  ingress:
+    type: NodePort
+    apiHostName: <PRIVATE-NODE-IP> # IMPORTANT (Private ip of the node where Openwhisk will be installed)
+    apiHostPort: 31001
+
+nginx:
+  httpsNodePort: 31001
+
+invoker:
+  containerFactory:
+    impl: "kubernetes"
+
+k8s:
+  dns: coredns.kube-system  # IMPORTANT (If coredns is used, set coredns.kube-system value to avoid a problem with nginx pod)
+  persistence:
+    enabled: false

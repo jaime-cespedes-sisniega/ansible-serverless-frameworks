@@ -1,0 +1,16 @@
+---
+- name: Install Openwhisk
+  hosts: localhost
+
+  tasks:
+    - name: Add Openwhisk helm repo
+      command: |
+        /usr/local/bin/helm repo add openwhisk https://openwhisk.apache.org/charts
+
+    - name: Update helm repos
+      command: |
+        /usr/local/bin/helm repo update
+
+    - name: Install Openwhisk
+      command: |
+        /usr/local/bin/helm install owdev openwhisk/openwhisk -n openwhisk --create-namespace -f cluster/cluster.yaml
