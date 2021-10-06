@@ -9,6 +9,10 @@
       command: |
         kubectl delete --ignore-not-found=true -f https://github.com/knative/net-kourier/releases/download/"{{ knative_version }}"/kourier.yaml
 
+    - name: Patch CRDS ingresses.networking.internal.knative.dev to force deletion
+      command: |
+        kubectl patch crd/ingresses.networking.internal.knative.dev -p '{"metadata":{"finalizers":[]}}' --type=merge
+
     - name: Uninstall Knative Serving CRDS
       command: |
         kubectl delete --ignore-not-found=true -f https://github.com/knative/serving/releases/download/"{{ knative_version }}"/serving-crds.yaml
